@@ -14,13 +14,23 @@ export default function Home() {
   const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowIntro(false)
-      setTimeout(() => setIntroFinished(true), 400) 
-    }, 2000)
-    return () => clearTimeout(timer)
-  }, [])
+    if (showIntro) {
+      // イントロが表示されている間はスクロールを禁止し、トップに固定
+      document.body.style.overflow = 'hidden'
+      window.scrollTo(0, 0)
+    } else {
+      // イントロが終わったらスクロールを許可
+      document.body.style.overflow = 'unset'
+    }
+  }, [showIntro])
 
+  const handleIntroComplete = () => {
+    // 念の為、終わった瞬間にもトップへ戻す
+    window.scrollTo(0, 0);
+    
+    setShowIntro(false)
+    setTimeout(() => setIntroFinished(true), 100) 
+  }
   return (
     <main className="relative min-h-screen bg-white selection:bg-[#ccff00] selection:text-black">
       
@@ -28,7 +38,8 @@ export default function Home() {
 
       <AnimatePresence mode="wait">
         {showIntro && (
-          <IntroOverlay onComplete={() => console.log('Intro hidden')} />
+          // 👇 ここで完了時の関数を渡す
+          <IntroOverlay onComplete={handleIntroComplete} />
         )}
       </AnimatePresence>
 

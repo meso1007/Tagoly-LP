@@ -141,7 +141,7 @@ export default function BentoGrid() {
       <div className="max-w-6xl mx-auto px-4">
         
         <div className="mb-16 text-center md:text-left">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
+          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-white">
             Why Tagoly?
           </h2>
           <p className="text-blue-100 text-lg max-w-2xl">
@@ -181,7 +181,7 @@ export default function BentoGrid() {
               {/* Text Area */}
               <div className="p-6">
                 {/* テキストカラーの変更のみ（太字にするとレイアウトがズレるため） */}
-                <h3 className="font-bold text-xl text-neutral-900 mb-2 group-hover:text-[#8cb300] transition-colors flex items-center gap-2">
+                <h3 className="font-bold text-xl text-neutral-900 mb-2 group-hover:text-[#ccff00] transition-colors flex items-center gap-2">
                   {item.title}
                 </h3>
                 <p className="text-neutral-500 text-sm leading-relaxed">
