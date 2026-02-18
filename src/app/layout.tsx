@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <SmoothScroll>
           <BackgroundGradient /> {/* ここに追加！ */}
           <div className="relative z-0"> {/* コンテンツをラップ */}

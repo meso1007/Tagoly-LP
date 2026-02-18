@@ -1,43 +1,52 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import InstallWidget from '../InstallWidget'
+import { motion } from "framer-motion";
+import InstallWidget from "@/components/InstallWidget"; 
+import { TopGlow } from "@/components/ui/TopGlow"; // さっき作ったやつ
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center px-4 py-20 overflow-hidden">
-      {/* 背景装飾 (グリッド) */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+    // bg-white を指定して清潔に
+    <section className="relative w-full min-h-screen bg-white flex flex-col items-center justify-center overflow-hidden">
+      
+      {/* 1. 天井のグロー (これがヘッダー代わりになる) */}
+      <TopGlow />
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
-        <motion.div
+      {/* コンテンツ (z-index を上げて光の上に表示) */}
+      <div className="relative z-10 flex flex-col items-center px-4">
+        
+        {/* タイトル */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }} // イントロ明けに少し遅らせる
+          className="text-center text-5xl md:text-8xl font-extrabold tracking-tighter text-neutral-900 leading-tight"
+        >
+          Commit with <br />
+          <span className="text-neutral-900">Confidence.</span>
+        </motion.h1>
+
+        {/* サブタイトル */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+          className="mt-6 text-neutral-500 font-medium text-center max-w-xl text-lg md:text-xl"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-blue-400 mb-6 backdrop-blur-sm">
-            v1.0.0 Public Release 🚀
-          </span>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 mb-6">
-            Commit with <br className="hidden md:block" />
-            <span className="text-white">Confidence.</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Stop wasting time on format. Tagoly automates scope detection and enforces team consistency in seconds.
-          </p>
-        </motion.div>
+          Stop wasting time on format. Tagoly automates scope detection and enforces team consistency.
+        </motion.p>
 
+        {/* ウィジェット */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           transition={{ delay: 0.9, duration: 0.8 }}
+           className="mt-12 w-full max-w-2xl"
         >
-          {/* ここにウィジェットを配置 */}
           <InstallWidget />
         </motion.div>
+
       </div>
     </section>
-  )
+  );
 }
