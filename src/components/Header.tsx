@@ -20,7 +20,7 @@ export default function Header({ show }: HeaderProps) {
           hidden: { y: -20, opacity: 0 },
           visible: { y: 0, opacity: 1, transition: { duration: 0.6, delay: 0.2 } }
         }}
-        className="text-3xl font-bold tracking-tighter logo-title"
+        className="text-4xl font-bold tracking-tighter logo-title"
       >
         Tagoly
       </motion.div>
