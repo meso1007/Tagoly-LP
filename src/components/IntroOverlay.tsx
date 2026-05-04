@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import faviconLogo from '@/favicon.ico'
 
 // 画面幅に応じたストリップ数（レスポンシブ）
 function getStripCount(width: number) {
@@ -23,7 +24,7 @@ export default function IntroOverlay({ onComplete }: { onComplete: () => void })
 
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center pointer-events-none">
-      
+
       {/* 1. 背景のストライプカーテン */}
       <div className="absolute inset-0 flex w-full h-full">
         {[...Array(stripCount)].map((_, i) => (
@@ -55,7 +56,7 @@ export default function IntroOverlay({ onComplete }: { onComplete: () => void })
         transition={{ delay: 1.5, duration: 0.3 }}
       >
         {/* メインタイトル (変更なし) */}
-        <div className="flex items-baseline logo-title"> 
+        <div className="flex items-center gap-4 logo-title">
           {"Tagoly".split("").map((char, i) => (
             <motion.span
               key={i}

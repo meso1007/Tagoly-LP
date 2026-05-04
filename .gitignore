@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+# local Playwright browser cache (if used for screenshots)
+.playwright-browsers
+
 # next.js
 /.next/
 /out/

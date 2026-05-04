@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import BackgroundGradient from "@/components/BackgroundGradient";
 import { getSiteOrigin } from "@/lib/site";
+import faviconLogo from "@/favicon.ico";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Tagoly" }],
   creator: "Tagoly",
+  icons: {
+    icon: faviconLogo.src,
+    shortcut: faviconLogo.src,
+    apple: faviconLogo.src,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

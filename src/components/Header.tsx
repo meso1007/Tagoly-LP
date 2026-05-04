@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Github } from 'lucide-react'
+import faviconLogo from '@/favicon.ico'
 
 interface HeaderProps {
   show: boolean
@@ -16,17 +17,22 @@ export default function Header({ show }: HeaderProps) {
       initial={false}
       animate={show ? "visible" : "hidden"}
     >
-      {/* 左：ロゴ (Tagoly) */}
+      {/* 左：ロゴ */}
       <motion.div
         variants={{
           hidden: { y: -20, opacity: 0 },
           visible: { y: 0, opacity: 1, transition: { duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] } }
         }}
-        // スマホで少し小さく(3xl)、PCで大きく(4xl)
-        // pointer-events-auto でここだけクリック可能に
-        className="text-3xl md:text-4xl font-bold tracking-tighter logo-title text-black pointer-events-auto select-none"
+        className="flex items-center gap-1 pointer-events-auto select-none"
       >
-        Tagoly
+        <img
+          src={faviconLogo.src}
+          alt="Tagoly logo"
+          className="h-9 w-auto md:h-10 object-contain"
+        />
+        <span className="text-3xl md:text-4xl font-bold tracking-tighter logo-title text-black">
+          Tagoly
+        </span>
       </motion.div>
 
       {/* 右：GitHub Link */}
@@ -45,11 +51,11 @@ export default function Header({ show }: HeaderProps) {
         <span className="hidden sm:block text-sm font-bold text-neutral-500 group-hover:text-black transition-colors duration-300">
           Star on GitHub
         </span>
-        
+
         {/* アイコン: 丸い背景で強調 */}
         <div className="relative p-2.5 bg-neutral-900 rounded-full group-hover:bg-[#ccff00] group-hover:scale-110 transition-all duration-300 shadow-sm">
-           {/* 通常時の白いアイコン */}
-           <Github className="w-5 h-5 text-white group-hover:text-black transition-colors duration-300" />
+          {/* 通常時の白いアイコン */}
+          <Github className="w-5 h-5 text-white group-hover:text-black transition-colors duration-300" />
         </div>
       </motion.a>
     </motion.header>
