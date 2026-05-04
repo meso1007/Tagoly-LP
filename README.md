@@ -1,69 +1,96 @@
+<div align="center">
+  <h1>Tagoly LP</h1>
+
+  <a href="https://www.tagoly-lp.us/">
+    <img src="./src/favicon.ico" alt="Tagoly logo" width="80" />
+  </a>
+
+<p>
+    <strong>The digital home for Tagoly — The smarter Git commit CLI.</strong><br />
+    A high-performance landing page designed to showcase features, streamline installation, and onboard developers.
+  </p>
+
 <p align="center">
-  <img src="./src/favicon.ico" alt="Tagoly logo" width="220" />
+  <a href="https://www.tagoly-lp.us/"><b>Live Site</b></a>
+  &nbsp;&nbsp;︱&nbsp;&nbsp;
+  <a href="https://github.com/meso1007/tagoly"><b>Tagoly CLI</b></a>
+  &nbsp;&nbsp;︱&nbsp;&nbsp;
+  <a href="https://github.com/meso1007/tagoly-lp"><b>Togoly LP</b></a>
 </p>
+</div>
 
-# Tagoly LP
+## Overview
 
-Landing page for Tagoly, built with Next.js App Router.
+`tagoly-lp` is the landing page project for Tagoly.  
+It is built with Next.js App Router and optimized for product communication, SEO, and maintainability.
 
-- Live : [https://www.tagoly-lp.us/](https://www.tagoly-lp.us/)
+## Preview
 
-## Top Page Preview
+[![Tagoly top page preview](./public/top-page-screenshot.png)](https://www.tagoly-lp.us/)
 
-![Tagoly top page preview](./public/top-page-screenshot.png)
+## Key Features
 
-> `public/top-page-screenshot.svg` is a placeholder preview image.  
-> Replace it with an actual screenshot file (same path) whenever you want.
+- Conversion-oriented hero and section flow for product onboarding
+- Animated intro and transitions powered by Framer Motion
+- Reusable UI architecture with modular components in `src/components`
+- Built-in SEO support with metadata, sitemap, robots, and Open Graph image routes
 
-## Skill Stack (Detailed)
+## Tech Stack
 
-| Category | Technology | Purpose | Notes |
-| --- | --- | --- | --- |
-| Framework | Next.js 16 (App Router) | Routing, rendering, metadata API | Static routes for `robots.txt` and `sitemap.xml` |
-| UI Library | React 19 | Component-based UI | Client components for animated sections |
-| Language | TypeScript | Type safety and maintainability | Better DX for component props and metadata typing |
-| Styling | Tailwind CSS 4 | Utility-first styling | Fast iteration for landing page sections |
-| Animation | Framer Motion | Intro and section transitions | Smooth hero/overlay interactions |
-| Linting | ESLint | Code quality checks | Run via `bun run lint` |
-| Runtime | Bun | Local development and build | Works with `bun run dev/build/start` |
+| Category | Technology | Purpose |
+| --- | --- | --- |
+| Framework | Next.js 16 (App Router) | Routing, rendering, and metadata |
+| UI | React 19 | Component-based interface |
+| Language | TypeScript | Type-safe development |
+| Styling | Tailwind CSS 4 | Utility-first styling |
+| Animation | Framer Motion | Motion and transition effects |
+| Runtime | Bun | Dependency management and scripts |
+| Linting | ESLint | Code quality checks |
 
-## SEO Checklist
+## SEO Implementation
 
-| Item | File | Status | Description |
-| --- | --- | --- | --- |
-| Metadata | `src/app/layout.tsx` | Implemented | Title, description, canonical, robots, Open Graph, Twitter |
-| Structured Data | `src/app/layout.tsx` | Implemented | JSON-LD for `WebSite` and `SoftwareApplication` |
-| Robots | `src/app/robots.ts` | Implemented | Generates `/robots.txt` dynamically |
-| Sitemap | `src/app/sitemap.ts` | Implemented | Generates `/sitemap.xml` dynamically |
-| OG Image | `src/app/opengraph-image.tsx` | Implemented | Dynamic social share image |
-| App Icon | `src/app/icon.tsx` | Implemented | Dynamic icon generation |
+| Item | File |
+| --- | --- |
+| Metadata / Canonical / OG / Twitter | `src/app/layout.tsx` |
+| Structured Data (`WebSite`, `SoftwareApplication`) | `src/app/layout.tsx` |
+| Robots route | `src/app/robots.ts` |
+| Sitemap route | `src/app/sitemap.ts` |
+| Open Graph image route | `src/app/opengraph-image.tsx` |
+| App icon route | `src/app/icon.tsx` |
 
-## Local Development
+## Getting Started
+
+### Prerequisites
+
+- Bun installed locally
+
+### Local Development
 
 ```bash
 bun install
 bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Scripts
+## Available Scripts
 
 | Command | Description |
 | --- | --- |
 | `bun run dev` | Start development server |
-| `bun run build` | Create production build |
+| `bun run build` | Build production assets |
 | `bun run start` | Start production server |
 | `bun run lint` | Run ESLint |
 
 ## Project Structure
 
-| Path | Purpose |
+| Path | Description |
 | --- | --- |
-| `src/app` | App Router pages, layout, and SEO routes |
-| `src/components` | Reusable UI and landing page sections |
-| `src/lib` | Shared utilities (e.g. site URL resolver) |
+| `src/app` | App Router pages, layout, metadata, and SEO routes |
+| `src/components` | Reusable UI and page sections |
+| `src/lib` | Shared utility modules |
+| `public` | Static assets |
 
 ## Deployment
 
-Deploy on Vercel or any platform that supports Next.js.
+This project can be deployed to Vercel (recommended) or any hosting platform that supports Next.js.

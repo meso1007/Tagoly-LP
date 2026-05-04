@@ -27,13 +27,13 @@ export default function Home() {
   const handleIntroComplete = () => {
     // 念の為、終わった瞬間にもトップへ戻す
     window.scrollTo(0, 0);
-    
+
     setShowIntro(false)
-    setTimeout(() => setIntroFinished(true), 100) 
+    setTimeout(() => setIntroFinished(true), 100)
   }
   return (
     <main className="relative min-h-screen bg-white selection:bg-[#ccff00] selection:text-black">
-      
+
       <Header show={introFinished} />
 
       <AnimatePresence mode="wait">
@@ -45,7 +45,7 @@ export default function Home() {
 
       <div className="relative z-0">
         <Hero />
-        <BentoGrid/>
+        <BentoGrid />
         {/* 新しいセクションを追加 */}
         <TerminalDemo />
         <Footer />
